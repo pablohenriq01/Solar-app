@@ -28,7 +28,7 @@ export default function Index() {
                 secureTextEntry
             />
 
-            <Pressable style={styles.button} onPress={() => alert('Pressed Login')}>
+            <Pressable style={styles.button} onPress={() => router.push("/home" as Href)}>
                 <Text style={styles.text}>Login</Text>
             </Pressable>
 

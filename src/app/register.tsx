@@ -1,4 +1,4 @@
-import { useRouter } from "expo-router";
+import { Href, useRouter } from "expo-router";
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 
 export default function Register() {
@@ -58,7 +58,7 @@ export default function Register() {
 
 
 
-            <Pressable style={styles.button} onPress={() => alert('Pressed Confirmar Registro')}>
+            <Pressable style={styles.button} onPress={() => router.push("/home" as Href)}>
                 <Text style={styles.text}>Confirmar Registro</Text>
             </Pressable>
         </View>
