@@ -12,7 +12,7 @@ export default function Home() {
 
             <Text style={styles.title}>Sem produtos registrados.</Text>
             
-            <Pressable style={styles.button} onPress={() => router.push("/register_product" as Href)}>
+            <Pressable style={styles.button} onPress={() => router.push("/register-product" as Href)}>
                 <Text style={styles.text}>Registrar produtos 🗒</Text>
             </Pressable>
         </View>
