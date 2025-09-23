@@ -7,56 +7,48 @@ export default function Register() {
     return (
 
         <View style={styles.container}>
-            <Pressable style={styles.buttonBack} onPress={() => router.back()}>
-                <Text style={styles.text}>Voltar</Text>
+            <Pressable onPress={() => router.back()}>
+                <Text style={styles.arrowBack}>←</Text>
             </Pressable>
+            <Text style={styles.title}>Registre-se</Text>
+            <Text style={styles.subtitle}>Crie sua conta para começar a organizar a data de validade dos seus alimentos.</Text>
 
-            <TextInput
+            <View>
+                <Text style={styles.textTitleInput}>Nome Completo</Text>
+                <TextInput
                 style={styles.input}
-                placeholder="Nome Completo"
                 autoCapitalize="words"
 
-            />
+                />
 
-            <TextInput
-                style={styles.input}
-                placeholder="Nome de Usuario"
-                autoCapitalize="words"
-            />
+                <Text style={styles.textTitleInput}>Email</Text>
+                <TextInput
+                    style={styles.input}
+                    keyboardType="email-address"
 
-            <TextInput
-                style={styles.input}
-                placeholder="Email"
-                keyboardType="email-address"
+                />
 
-            />
+                <Text style={styles.textTitleInput}>Confirme seu email</Text>
+                <TextInput
+                    style={styles.input}
+                    keyboardType="email-address"
 
-            <TextInput
-                style={styles.input}
-                placeholder="Confirme seu Email"
-                keyboardType="email-address"
+                />
 
-            />
+                <Text style={styles.textTitleInput}>Senha</Text>
+                <TextInput
+                    style={styles.input}
+                    secureTextEntry
+                />
 
-            <TextInput
-                style={styles.input}
-                placeholder="Telefone"
-                keyboardType="phone-pad"
-            />
-
-            <TextInput
-                style={styles.input}
-                placeholder="Senha"
-                secureTextEntry
-            />
-
-            <TextInput
-                style={styles.input}
-                placeholder="Confirme sua Senha"
-                secureTextEntry
-            />
+                <Text style={styles.textTitleInput}>Confirmar sua senha</Text>
+                <TextInput
+                    style={styles.input}
+                    secureTextEntry
+                />
 
 
+            </View>
 
             <Pressable style={styles.button} onPress={() => router.push("/home" as Href)}>
                 <Text style={styles.text}>Confirmar Registro</Text>
@@ -69,44 +61,57 @@ export default function Register() {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
+
+    },
+    arrowBack: {
+        fontSize: 50,
+        paddingLeft: 20,
+        marginBottom: 20,
+        fontFamily: "Inter",
+        fontWeight: "bold",
+    },
+    title: {
+        fontSize: 35,
+        fontWeight: "bold",
+        paddingLeft: 20,
+        paddingBottom: 20,
+    },
+    subtitle: {
+        color: "#555",
+        fontSize: 16,
+        paddingLeft: 20,
+        paddingBottom: 30,
+    },
+    textTitleInput: {
+        paddingLeft: 20,
+        fontSize: 15,
+        fontWeight: "bold",
+        marginBottom: 5,
     },
     button: {
-        backgroundColor: "#19c709ff",
-        paddingVertical: 9,
-        paddingHorizontal: 24,
-        borderRadius: 8,
-        marginVertical: 5,
+        marginTop: 30,
+        backgroundColor: "#bb2005ff",
+        paddingVertical: 15,
+        paddingHorizontal: 20,
+        marginLeft: 20,
+        width: '90%',  
+    },
+    input: {
+        height: 40,
+        marginLeft: 20,
+        color: '#080808ff',
+        fontSize: 15,
+        borderColor: '#ccc',
+        backgroundColor: '#ffffffff',
+        borderWidth: 1,
+        paddingHorizontal: 10,
+        marginBottom: 20,
+        width: '90%',
     },
     text: {
         color: "#fff",
         fontWeight: "bold",
         fontSize: 16,
         textAlign: "center",
-    },
-    input: {
-        height: 40,
-        borderColor: 'gray',
-        backgroundColor: '#949494ff',
-        borderWidth: 1,
-        borderRadius: 8,
-        paddingHorizontal: 10,
-        marginBottom: 10,
-        width: '70%',
-        textAlign: 'center',
-    },
-    
-    buttonBack: {
-        backgroundColor: "#000000ff",
-        paddingVertical: 5,
-        paddingHorizontal: 10,
-        borderRadius: 8,
-        marginBottom: 20,
-        position: 'absolute',
-        top: "0%",
-        left: "0%",
     }
-
 });
