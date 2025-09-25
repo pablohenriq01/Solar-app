@@ -1,68 +1,55 @@
 import { Href, useRouter } from "expo-router";
+import { useState } from "react";
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 
-export default function Register() {
+export default function Login() {
     const router = useRouter();
 
-    return (
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
+    return (
         <View style={styles.container}>
             <Pressable onPress={() => router.back()}>
                 <Text style={styles.arrowBack}>←</Text>
             </Pressable>
-            <Text style={styles.title}>Registre-se</Text>
-            <Text style={styles.subtitle}>Crie sua conta para começar a organizar a data de validade dos seus alimentos.</Text>
+            <Text style={styles.title}>Entrar</Text>
+            <Text style={styles.subtitle}>Bem-vindo de volta! Por favor, logue com o email para entrar no aplicativo.</Text>
 
-            <View>
-                <Text style={styles.textTitleInput}>Nome Completo</Text>
-                <TextInput
-                style={styles.input}
-                autoCapitalize="words"
-
-                />
+            <View style={styles.inputContainer}>
 
                 <Text style={styles.textTitleInput}>Email</Text>
                 <TextInput
-                    style={styles.input}
+                    style ={styles.input}
+                    placeholder="seuemail@email.com"
+                    value={email}
+                    onChangeText={setEmail}
                     keyboardType="email-address"
-
-                />
-
-                <Text style={styles.textTitleInput}>Confirme seu email</Text>
-                <TextInput
-                    style={styles.input}
-                    keyboardType="email-address"
-
                 />
 
                 <Text style={styles.textTitleInput}>Senha</Text>
                 <TextInput
-                    style={styles.input}
+                    style ={styles.input}  
+                    value={password}
+                    onChangeText={setPassword}
                     secureTextEntry
                 />
 
-                <Text style={styles.textTitleInput}>Confirmar sua senha</Text>
-                <TextInput
-                    style={styles.input}
-                    secureTextEntry
-                />
-
+                
 
             </View>
 
             <Pressable style={styles.button} onPress={() => router.push("/home" as Href)}>
-                <Text style={styles.text}>Confirmar Registro</Text>
+                <Text style={styles.text}>Login</Text>
             </Pressable>
+
         </View>
-
-
     )
+
+
 }
 
 const styles = StyleSheet.create({
-    container: {
-
-    },
     arrowBack: {
         fontSize: 50,
         paddingLeft: 20,
@@ -82,19 +69,25 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
         paddingBottom: 30,
     },
+    container: {
+        flex: 1,
+    },
+
+    inputContainer: {
+        
+    },
+    
     textTitleInput: {
         paddingLeft: 20,
         fontSize: 15,
         fontWeight: "bold",
-        marginBottom: 5,
+        marginBottom: 10,
     },
-    button: {
-        marginTop: 30,
-        backgroundColor: "#bb2005ff",
-        paddingVertical: 15,
-        paddingHorizontal: 20,
-        marginLeft: 20,
-        width: '90%',  
+    text: {
+        color: "#fff",
+        fontSize: 16,
+        fontWeight: "bold",
+        textAlign: "center",
     },
     input: {
         height: 40,
@@ -105,13 +98,15 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffffff',
         borderWidth: 1,
         paddingHorizontal: 10,
-        marginBottom: 20,
+        marginBottom: 40,
         width: '90%',
     },
-    text: {
-        color: "#fff",
-        fontWeight: "bold",
-        fontSize: 16,
-        textAlign: "center",
-    }
-});
+    button: {
+        marginTop: 110,
+        backgroundColor: "#bb2005ff",
+        paddingVertical: 15,
+        paddingHorizontal: 20,
+        marginLeft: 20,
+        width: '90%',  
+    },
+})

@@ -1,44 +1,26 @@
 import { Href, useRouter } from "expo-router";
-import { useState } from "react";
-import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
     const router = useRouter();
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Solar dos Unidos</Text>
+            <Image style={styles.image} source={require('../../assets/images/logoSolar.png')}/>
+            <Text style={styles.title}>Faça login ou crie sua conta</Text>
+            <Text style={styles.subtitle}>Organize a data de validade dos seus alimentos aqui!</Text>
 
-            <TextInput
-                style ={styles.input}
-                placeholder="Digite seu email ou nome de usuario"
-                value={email}
-                onChangeText={setEmail}
-                keyboardType="email-address"
-            />
-
-            <TextInput
-                style ={styles.input}
-                placeholder="Digite sua senha"
-                value={password}
-                onChangeText={setPassword}
-                secureTextEntry
-            />
-
-            <Pressable style={styles.button} onPress={() => router.push("/home" as Href)}>
-                <Text style={styles.text}>Login</Text>
+            <Pressable style={styles.button} onPress={() => router.push("/login" as Href)}>
+                <Text style={styles.textLogin}>✉️ Faça o login com o seu email</Text>
             </Pressable>
 
-            <Pressable style={[styles.button, styles.register]} onPress={() => router.push("/register" as Href)}>
-                <Text style={styles.text}>Registre-se</Text>
-            </Pressable>
+            <Text>Não tem uma conta?
+                <Pressable onPress={() => router.push("/register" as Href)}> 
+                    <Text style={styles.register}> Registre-se</Text> 
+                </Pressable> 
+            </Text>
         </View>
     )
-
-
 }
 
 const styles = StyleSheet.create({
@@ -46,36 +28,39 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+    }, 
+    image: {
+        width: 350,
+        height: 190,
+        marginBottom: 40,
+        resizeMode: 'contain'
     },
     title: {
         fontSize: 22,
+        fontWeight: "bold",
         marginBottom: 20,
     },
+    subtitle: {
+        color: "#555",
+        fontSize: 16,
+        paddingHorizontal: 20,
+        marginBottom: 50,
+    },
     button: {
-        backgroundColor: "#19c709ff",
-        paddingVertical: 9,
-        paddingHorizontal: 24,
-        borderRadius: 8,
-        marginVertical: 5,
+        backgroundColor: "#bb2005ff",
+        paddingVertical: 15,
+        paddingHorizontal: 50,
+        marginBottom: 20,
+    },
+    textLogin: {
+        color: "#fff",
+        fontSize: 18,
     },
     register: {
-        backgroundColor: "#0044ffff", 
-    },
-    text: {
-        color: "#fff",
-        fontSize: 16,
+        color: "#bb2005ff",
         fontWeight: "bold",
-        textAlign: "center",
-    },
-    input: {
-        height: 40,
-        borderColor: 'gray',
-        backgroundColor: '#ec7676ff',
-        borderWidth: 1,
-        borderRadius: 8,
-        paddingHorizontal: 10,
-        marginBottom: 10,
-        width: '70%',
-        textAlign: 'center',
+        fontStyle: "italic",
+        textDecorationLine: "underline",
     }
-})
+
+});
