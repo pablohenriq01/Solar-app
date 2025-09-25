@@ -1,3 +1,4 @@
+import ArrowBack from "@/components/ArrowBack";
 import { Href, useRouter } from "expo-router";
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 
@@ -7,9 +8,9 @@ export default function Register() {
     return (
 
         <View style={styles.container}>
-            <Pressable onPress={() => router.back()}>
-                <Text style={styles.arrowBack}>←</Text>
-            </Pressable>
+
+            <ArrowBack/>
+
             <Text style={styles.title}>Registre-se</Text>
             <Text style={styles.subtitle}>Crie sua conta para começar a organizar a data de validade dos seus alimentos.</Text>
 
@@ -61,29 +62,20 @@ export default function Register() {
 
 const styles = StyleSheet.create({
     container: {
-
-    },
-    arrowBack: {
-        fontSize: 50,
+        flex: 1,
         paddingLeft: 20,
-        marginBottom: 20,
-        fontFamily: "Inter",
-        fontWeight: "bold",
     },
     title: {
         fontSize: 35,
         fontWeight: "bold",
-        paddingLeft: 20,
         paddingBottom: 20,
     },
     subtitle: {
         color: "#555",
         fontSize: 16,
-        paddingLeft: 20,
         paddingBottom: 30,
     },
     textTitleInput: {
-        paddingLeft: 20,
         fontSize: 15,
         fontWeight: "bold",
         marginBottom: 5,
@@ -93,12 +85,10 @@ const styles = StyleSheet.create({
         backgroundColor: "#bb2005ff",
         paddingVertical: 15,
         paddingHorizontal: 20,
-        marginLeft: 20,
-        width: '90%',  
+        width: '95%',  
     },
     input: {
         height: 40,
-        marginLeft: 20,
         color: '#080808ff',
         fontSize: 15,
         borderColor: '#ccc',
@@ -106,7 +96,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         paddingHorizontal: 10,
         marginBottom: 20,
-        width: '90%',
+        width: '95%',
     },
     text: {
         color: "#fff",

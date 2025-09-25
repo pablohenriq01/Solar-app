@@ -1,20 +1,15 @@
-import { Href, useRouter } from "expo-router";
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import BarNavigation from "@/components/BarNavigation";
+import { useRouter } from "expo-router";
+import { StyleSheet, Text, View } from "react-native";
 export default function Home() {
     const router = useRouter();
 
     return (
         <View style={styles.container}>
-            <Pressable onPress={() => alert('Profile pressed!')}>
-                <Image source={require('../../assets/images/profile-image.png')} 
-                style={styles.profileImage}/>
-            </Pressable>
-
+            
             <Text style={styles.title}>Sem produtos registrados.</Text>
             
-            <Pressable style={styles.button} onPress={() => router.push("/register-product" as Href)}>
-                <Text style={styles.text}>Registrar produtos 🗒</Text>
-            </Pressable>
+            <BarNavigation/>
         </View>
     )
 }
@@ -22,6 +17,7 @@ export default function Home() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        paddingLeft: 20,
         justifyContent: "center",
         alignItems: "center",
     },
@@ -29,24 +25,16 @@ const styles = StyleSheet.create({
         fontSize: 22,
         marginBottom: 20,
     },
-    profileImage: {
-        top: "-450%",
-        right: "-40%",
-        width: 50,
-        height: 50,
-        borderColor: '#000',
-        borderWidth: 2,
-        borderRadius: 50,
-        marginBottom: 20,
-        resizeMode: 'cover',
-    },
     button: {
-        backgroundColor: "#0d8302ff",
-        paddingVertical: 9,
-        paddingHorizontal: 24,
-        borderRadius: 8
+        marginTop: 110,
+        backgroundColor: "#bb2005ff",
+        paddingVertical: 15,
+        paddingHorizontal: 20,
+        width: '90%',
+        alignItems: "center",
     },
     text: {
         color: "#fff",
-        fontSize: 16,}
+        fontSize: 16
+    },
 });
